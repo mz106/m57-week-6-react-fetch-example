@@ -15,7 +15,7 @@ function App() {
 
       const data = await response.json();
       console.log(data);
-      setUsers([...users]);
+      setUsers(data);
     };
 
     fetchData();
@@ -24,6 +24,11 @@ function App() {
   return (
     <>
       <h1>Hello world</h1>
+      <ul>
+        {users.map((item, key) => (
+          <p key={item.id}>{item.name}</p>
+        ))}
+      </ul>
     </>
   );
 }
